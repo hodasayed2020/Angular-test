@@ -1,0 +1,147 @@
+
+
+
+
+    <h1>Dejaveau store</h1>
+    <table class="table table m-2">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Img</th>
+                <th scope="col">Price</th>
+                <th scope="col">Categoryid</th>
+                
+                <th scope="col">Quantity</th>
+                
+                <th scope="col" >Counter</th>
+ 
+                <th scope="col"> Buy</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let prd of  prdlistOfCat" [class.bg-warning]="prd.quantity==1">
+                <!-- <ng-container *ngFor="let prd of prdlist;let i=index" class=""> -->
+                <ng-container class=""></ng-container>
+
+                <td>{{prd.id}}</td>
+                <td>{{prd.name}}</td>
+                <td><img *ngIf="showimg" [src]="prd.img" width="200" height="150">
+                    <div *ngIf="!showimg">"“Thanks for purchasing from our Store” "</div>
+                </td>
+                
+
+                <td>{{prd.price}}</td>
+                <td>{{prd.categoryid}}</td>
+<td><input type="number" class="form-control"#itemcount></td>
+                
+                <td><ng-container [ngSwitch]="prd.quantity">
+                        <!-- <ng-container *ngSwitchCase="0">out of stock</ng-container> -->
+                        <!-- <span *ngIf="prd.quantity>0">{{prd.quantity}}</span>
+
+                            <span *ngIf="prd.quantity==0">out outofstock</span> -->
+
+                        <!-- <ng-container> <span -->
+                                 <!-- *ngIf="prd.quantity>0; else outofstock">{{prd.quantity}}</span></ng-container>  -->
+                        <!-- <ng-template #outofstock>out of stock</ng-template> -->
+                        <!-- <ng-container *ngSwitchCase="1">Last item</ng-container>  -->
+                        <!-- <ng-container *ngSwitchCase="2">Last 2 items</ng-container> -->
+                        <!-- <td><button (click)="counter()">++<button></td> -->
+                        <input type="button" class="btn btn-secondary"  (click)="counter()"   id="user"  [value]="count"/>   <small>count:{{count}}</small>
+                     
+                        
+                    </ng-container></td>
+                    <td><button class="btn btn-primary"[disabled]="prd.quantity==0"(click)=UpdateTotalPrice(prd.price,itemcount.value)>Add to cart</button></td>
+
+                <td>
+                    <!-- Event binding: -->
+                    <!-- <button class="btn btn-primary" [disabled]="prd.quantity==0">Add to cart</button> -->
+                </td>
+
+                <!-- <button (click)="toggleimg()" class="btn btn-primary" [hidden]="prd.quantity==0">buy</button></td> -->
+
+                <!-- <div *ngIf="showimg">"“Thanks for purchasing from our Store” "</div> -->
+                <!-- <button (click)="togglediv()" class="btn btn-info">buy</button></td> -->
+                <!-- <button class="btn btn-info"[disabled]="prd.quantity==0">buy</button></td> -->
+            </tr>
+            <!-- class binding -->
+            <!-- style binding -->
+            <!-- <tr *ngFor="let prd of prdlist; let i=index" [class.bg-warning]="prd.quantity==1"></tr> -->
+            <!-- [style.background-color]="prd.quantity==0 ?'lightblue':'grey'"  -->
+            <!-- [style.color]="prd.quantity==0 ?'green':'red'"> -->
+            <!-- directive -->
+            <!-- ng style -->
+            <!-- <tr *ngFor="let prd of prdlist; let i=index"[ngStyle]="{'background-color':(prd.quantity==0)?'lightblue':'grey','color':(prd.quantity==0)?'green':'blue'}"> -->
+            <!--  -->
+
+
+
+            <!-- <ng-container *ngFor="let prd of prdlist; let i=index"[ngStyle]> -->
+            <!-- <tr> -->
+            <!-- <span>*ngIf="prd.quantity>0">{{prd.quantity}}</span> -->
+            <!-- <span>*ngIf="prd.quantity==0">out of stock</span> -->
+            <!-- <tr> -->
+            <!-- <td>{{prd.no}}</td> -->
+
+
+
+
+
+
+
+
+
+            <!-- ng class -->
+            <!-- <h1>{{storeclas.name}}</h1> -note classss->
+<tr *ngFor="let prd of prdlist; let i=index"[ngClass]="{'bg-warning':prd.quantity==0,'text-danger':prd.quantity==0}">
+    <td>{{i+1}}</td>
+    <td><h1>{{prd.name}}</h1></td>
+    <td>
+
+<ng-container *ngIf="prd.quantity>0;else outofstock Ele">{{prd.quantity}}</ng-container> -->
+            <!-- <ng-template #outofstock Ele>out of stock</ng-template> -->
+
+
+
+
+            <!-- <td>{{prd.price}}</td> -->
+            <!-- properity binding [src]............note (c-2) -->
+            <!-- <td><img [src]="prd.img" width="200" height="150"></td> -->
+            <!-- <td>{{prd.categoryid}}</td> -->
+
+
+
+            <!-- Event binding Buy button
+    1/that when clicked hides the Logo
+    2/and shows div saying “Thanks for purchasing from our Store” +ClientName Entered
+    3/. (use Event binding (click), and IsPurshased  flag,
+     and method to toggle flag value, with *ngIf, to show or hide them).
+    -->
+            <!-- <td> <button class="btn btn-primary"[hidden]="prd.quantity==0">buy</button></td> -->
+            <!-- 5 -->
+            <!-- <ng-container [ngSwitch]="prd.quantity">
+    <ng-container *ngSwitchCase="0">out of stock</ng-container>
+    <ng-container *ngSwitchCase="1">Last item</ng-container>
+    <ng-container *ngSwitchCase="2">Last 2 items</ng-container>
+    
+    
+    
+    </ng-container> -->
+            <!-- <td> -->
+            <!-- <button class="btn btn-info"[disabled]="prd.quantity==0">buy</button></td> -->
+
+
+<!-- <h2 class="bg-danger">For test UpdateTotalPrice:{{ordertotalprice}}</h2>test -->
+
+
+
+
+
+
+
+
+
+
+

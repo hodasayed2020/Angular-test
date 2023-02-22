@@ -1,0 +1,45 @@
+<!-- select -->
+<div>
+    <label for="cat">select category :</label>
+    <!-- two way binding -->
+    <select name="cat" id="cat" [(ngModel)]="selectedCatID" class="form-control">
+
+        <option *ngFor="let cat of catlist" [value]="cat.id">{{cat.name}}</option>
+        <option value="0">All</option>
+    </select>
+</div>
+<!-- <h1 class="bg-danger">for test selected option:{{selectedCatID}}</h1> -->
+
+<app-product [recivedCatID]="selectedCatID" (TotalPriceChanged)="OnTotalPrice($event)" ></app-product>
+<h1>TotalPrice:{{receivedTotalPrice}}</h1>
+
+<div>
+<label for="">UserName:</label>
+<input type="text" class="form-control" name="user" id="user"#UserName>
+</div>
+
+
+<table class="table table-success table-hover table-bordered table-content">
+    <thead>
+        
+      <tr class="center-align">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>TotalPrice</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+<tr [(ngModel)]="selectedCatID"#itemcount>
+    <td>
+        
+    </td>
+    <td></td>
+    <!-- <td><option *ngFor="let cat of catlist"[value]="cat.id"></option></td> -->
+    <!-- <td> <option *ngFor="let cat of catlist"[value]="cat.price"></option></td> -->
+    <td></td>
+    <td>{{receivedTotalPrice}}</td>
+</tr>
+    </tbody>
+<button class="btn btn-primary" (click)="GetArray()">Get Array products</button>
